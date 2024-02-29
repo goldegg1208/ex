@@ -56,9 +56,9 @@ function convert(){
 
     let amount = eval(document.getElementById("from-input").value);
     let convertedAmount = amount * currencyRatio[fromCurrency][toCurrency];
-    console.log("환전 결과는 ", convertedAmount);
+    //console.log("환전 결과는 ", convertedAmount);
 
-    document.getElementById("to-input").value=convertedAmount;
+    document.getElementById("to-input").value=convertedAmount.tofixed(2);
     readNumKorean();
 }
 
