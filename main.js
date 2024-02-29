@@ -10,38 +10,20 @@
 
 let currencyRatio={
     USD:{
-        KRW:1417.58,
+        KRW:1336.40,
         USD:1,
-        JPY:149.76,
-        VND:23875.00,
         unit:"달러"
     },
     KRW:{
         KRW:1,
         USD:0.00071,
-        JPY:0.10,
-        VND:16.84,
         unit:"원"
-    },
-    JPY:{
-        KRW:9.58,
-        USD:0.0067,
-        JPY:1,
-        VND:163.43,
-        unit:"엔"
-    },
-    VND:{
-        KRW:0.059,
-        USD:0.000042,
-        JPY:0.0061,
-        VND:1,
-        unit:"동"
     }
 }
 var unitWords = ["", "만", "억", "조", "경"]; 
 var splitUnit = 10000;
 let fromCurrency = "USD";
-let toCurrency = "USD";
+let toCurrency = "KRW";
 
 
 
