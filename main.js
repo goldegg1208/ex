@@ -54,7 +54,7 @@ function convert(){
     //얼마? 가지고있는돈이 뭔지, 바꾸고자하는 돈이 뭐지
     //돈 * 환율 = 환전금액
 
-    let amount = document.getElementById("from-input").value;
+    let amount = eval(document.getElementById("from-input").value);
     let convertedAmount = amount * currencyRatio[fromCurrency][toCurrency];
     console.log("환전 결과는 ", convertedAmount);
 
