@@ -85,6 +85,10 @@ function readNum(num){
     let resultString = "";
     let resultArray  = [];
 
+    if(isNaN(num)) {
+        return eval(num);
+    }
+
     // 만단위로끊어내는 for문
     for(let i=0;i<unitWords.length;i++){
         let unitResult=(num%Math.pow(splitUnit, i+1))/Math.pow(splitUnit, i);
