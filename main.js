@@ -86,7 +86,8 @@ function readNum(num){
     let resultArray  = [];
 
     if(isNaN(num)) {
-        return eval(num);
+        //return eval(num);
+        num = eval(num);
     }
 
     // 만단위로끊어내는 for문
