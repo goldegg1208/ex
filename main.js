@@ -88,6 +88,8 @@ function readNum(num){
     if(isNaN(num)) {
         //return eval(num);
         num = eval(num);
+        splitUnit = 1000;
+        unitWords = ["", ",", ",", ",", ","]; 
     }
 
     // 만단위로끊어내는 for문
