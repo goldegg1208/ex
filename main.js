@@ -86,10 +86,8 @@ function readNum(num){
     let resultArray  = [];
 
     if(isNaN(num)) {
-        //return eval(num);
-        num = eval(num);
-        splitUnit = 1000;
-        unitWords = ["", ",", ",", ",", ","]; 
+        num = eval(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        return num;
     }
 
     // 만단위로끊어내는 for문
