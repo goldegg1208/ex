@@ -10,7 +10,7 @@
 
 let currencyRatio={
     USD:{
-        KRW:1336.40,
+        KRW:1427.00,
         USD:1,
         unit:"달러"
     },
