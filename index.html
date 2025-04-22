@@ -5,18 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Exchange Rate</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     html, body {
-      height: 100%; /* 전체 페이지의 높이를 100%로 설정 */
-      margin: 0; /* 기본 margin 없애기 */
-      padding: 0; /* 기본 padding 없애기 */
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     table {
       width: 100%;
-      height: 100%; /* 테이블의 높이를 100%로 설정 */
+      height: 100%;
       border: 1px solid black;
     }
 
@@ -24,63 +23,53 @@
       border: 1px solid black;
     }
 
-    /* 왼쪽 콘텐츠의 크기 설정 */
     .left-content {
-      width: 20%; /* 왼쪽 콘텐츠 영역을 50%로 설정 */
+      width: 20%;
       padding: 20px;
       box-sizing: border-box;
-      height: 100%; /* 왼쪽 콘텐츠의 높이를 부모에 맞게 설정 */
+      height: 100%;
     }
 
-    /* 오른쪽 콘텐츠의 크기 설정 */
     .right-content {
-      width: 80%; /* 오른쪽 콘텐츠 영역을 50%로 설정 */
+      width: 80%;
       padding: 20px;
       box-sizing: border-box;
-      height: 100%; /* 오른쪽 콘텐츠의 높이를 부모에 맞게 설정 */
+      height: 100%;
     }
 
-    /* iframe 스타일 */
-    iframe {
-      width: 100%; /* iframe 너비를 부모에 맞게 설정 */
-      height: 100%; /* iframe 높이를 부모에 맞게 설정 */
-      border: none;
+    .exchange-box {
+      margin-bottom: 20px;
+    }
+
+    .dropbtn {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+
+    .input-area {
+      margin-top: 10px;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    .Number {
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 10px;
     }
   </style>
 </head>
 
 <body>
-
-<script type="text/javascript">
-  function calstocks() {
-    var stock_price = document.getElementById('stock_price').value;
-    stock_price = parseFloat(stock_price);
-
-    var stocks = document.getElementById('stocks').value;
-    stocks = parseInt(stocks);
-
-    var addprice = document.getElementById('addprice').value;
-    addprice = parseFloat(addprice);
-
-    var addstocks = document.getElementById('addstocks').value;
-    addstocks = parseInt(addstocks);
-
-    var cal_stocks;
-    cal_stocks = parseInt(cal_stocks);
-    cal_stocks = eval(stocks + addstocks);
-
-    var cal_result;
-    cal_result = parseFloat(cal_result);
-    cal_result = eval(((stock_price * stocks) + (addprice * addstocks)) / cal_stocks);
-    cal_result = cal_result.toFixed(2);
-
-    //document.write("보유수량");
-    document.getElementById("cal_stocks").innerHTML = cal_stocks;
-    document.getElementById("cal_result").innerHTML = cal_result;
-    //return stock_price;
-  }
-</script>
-	
   <table>
     <thead>
       <tr>
@@ -91,99 +80,73 @@
       <tr>
         <td class="left-content">
           <div class="page">
-            <div>
-              <h1 class="title">Currency Exchange</h1>
-              <div class="exchange-box">
-                <div class="dropdown">
-                  <button class="dropbtn" id="from-button">
-                    <img class="flag" src="https://w.namu.la/s/82e8f0ba23b7861b4ae69bcf0523076d2151136ad3591c81e8cb49e563a6c46a9faaaa519f1f60a1f581714ddcf63c8c8c22d79c9e93ba0b010ca00663baf829b7bc8efa856ec48a7118284178eb393c69c6dc5c5420946ed59abea255a7863e" width="18px" height="12px">USD</button>
-                </div>
-                <div class="input-area">
-                  <input type="text" id="from-input" onkeyup="convert()" placeholder="금액 또는 '금액*수량' 을 입력하세요">
-                  <div id="fromNumToKorea" class="Number">달러</div>
-                </div>
+            <h1 class="title">Currency Exchange</h1>
+            <div class="exchange-box">
+              <div class="dropdown">
+                <button class="dropbtn" id="from-button">
+                  <img class="flag" src="https://w.namu.la/s/82e8f0ba23b7861b4ae69bcf0523076d2151136ad3591c81e8cb49e563a6c46a9faaaa519f1f60a1f581714ddcf63c8c8c22d79c9e93ba0b010ca00663baf829b7bc8efa856ec48a7118284178eb393c69c6dc5c5420946ed59abea255a7863e" width="18" height="12"> USD
+                </button>
               </div>
-              <h1 class="simbol">=</h1>
-              <div class="exchange-box">
-                <div class="dropdown">
-                  <button class="dropbtn" id="to-button">
-                    <img class="flag" src="https://w.namu.la/s/43a07e65f573eb41fffe67ac0d1008fa73b5c7a04a004ff9004ddf0680524c5c5bd8a30c724fd7966bd7d3a2f60d0bd17c3cc159dd41f704f9b6dc188a21346dcf6aed9b29d4349c28d0fe50f74fcbe2c48ee4eccfb75136d68f5cde27f4b09a" width="18px" height="12px">KRW</button>
-                </div>
-                <div class="input-area">
-                  <input type="number" id="to-input" onkeyup="reconvert()">
-                  <div id="toNumToKorea" class="Number">원</div>
-                </div>
+              <div class="input-area">
+                <input type="text" id="from-input" placeholder="금액 또는 '금액*수량' 입력" onkeyup="convert()">
+                <div id="fromNumToKorea" class="Number">달러</div>
+              </div>
+            </div>
+            <h1 class="simbol">=</h1>
+            <div class="exchange-box">
+              <div class="dropdown">
+                <button class="dropbtn" id="to-button">
+                  <img class="flag" src="https://w.namu.la/s/43a07e65f573eb41fffe67ac0d1008fa73b5c7a04a004ff9004ddf0680524c5c5bd8a30c724fd7966bd7d3a2f60d0bd17c3cc159dd41f704f9b6dc188a21346dcf6aed9b29d4349c28d0fe50f74fcbe2c48ee4eccfb75136d68f5cde27f4b09a" width="18" height="12"> KRW
+                </button>
+              </div>
+              <div class="input-area">
+                <input type="number" id="to-input" onkeyup="reconvert()">
+                <div id="toNumToKorea" class="Number">원</div>
               </div>
             </div>
           </div>
         </td>
         <td class="right-content">
-          <!-- iframe 오른쪽에 배치 -->
-          <iframe srcdoc='
-          <div class="container single-post-container" style="height: auto !important;">
-<h2 class="wp-block-heading"><span id="i"><b>주식 평단가 계산법(일명 물타기 계산법)</b></span></h2>
-
-<!--
-<div class="wp-block-image">
-<figure class="aligncenter size-full"><img decoding="async" loading="lazy" width="665" height="117" src="https://www.omdroid.com/wp-content/uploads/sites/2/2021/03/img.png" alt="" class="wp-image-2674" srcset="https://www.omdroid.com/wp-content/uploads/sites/2/2021/03/img.png 665w, https://www.omdroid.com/wp-content/uploads/sites/2/2021/03/img-300x53.png 300w" sizes="(max-width: 665px) 100vw, 665px"></figure></div>
--->
-
-<h2 class="wp-block-heading"><span id="i-2"><b>계산기 사용법</b></span></h2>
-
-<p>자신이 보유하고 있던 해외 주식의 종목(예를 들면 미국 주식)의 단가, 보유하고 있던 수량, 신규로 매수시 매수단가, 신규로 매수시 수량을 아래 계산기의 각 항목에 숫자를 입력합니다. 보유 단가와 신규 매수 단가는 소수점 2자리까지 입력이 가능합니다. 입력하고 난 다음에 아래의 “계산하기” 버튼을 클릭하면 총 보유수량과 평단가가 출력이 됩니다.</p>
-
-<h2 class="wp-block-heading"><span id="i-3"><b>해외 주식 평단가 계산기</b></span></h2>
-
-<p>아래의 빈 항목을 채워놓은 후 “계산하기” 버튼을 누르세요.</p>
-
-<style> 
-input[type=text] {
-  width: 30%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid #555;
-  outline: none;
-}
- 
-input[type=text]:focus {
-  background-color: lightblue;
-}
-</style>
-<p><b>기존 보유단가</b>
-<input id="stock_price" class="inputtext" style="width: 150px; vertical-align: middle; text-align: right;" type="text"> <b> (원/달러)</b></p>
-<p><b>기존 보유수량</b>
-<input id="stocks" class="inputtext" style="width: 150px; vertical-align: middle; text-align: right;" type="text"><b> 주</b></p>
-<p><b>신규 매수단가</b>
-<input id="addprice" class="inputtext" style="width: 150px; vertical-align: middle; text-align: right;" type="text"><b> (원/달러)</b></p>
-<p><b>신규 매수수량</b>
-<input id="addstocks" class="inputtext" style="width: 150px; vertical-align: middle; text-align: right;" type="text"><b> 주</b></p>
-<p><b>&nbsp;</b></p>
-<p>&nbsp;</p>
-<p><button size="10px" style="color: #fff; background:black; font-size:1em; border-radius:0.5em; padding:5px 20px;" onclick="calstocks()">계산하기</button></p>
-<p>&nbsp;</p>
-<p><b> 총 보유수량 : <span id="cal_stocks"></span><span>주</span><br>평단가 : <span id="cal_result"></span><span>원</span></b></p>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-
-<!-- YARPP Thumbnails -->
-<div class="code-block code-block-2" style="margin: 8px auto; text-align: center; display: block; clear: both;">
-
-<!-- AI CONTENT END 2 -->
-<div id="comments" class="comments-area"></div>
-			<div class="nv-sidebar-wrap col-sm-12 nv-right blog-sidebar " style="height: auto !important;">
-		<aside id="secondary" role="complementary" style="height: auto !important;">
-<!-- 반응형사이드바 -->
-		</div>
-	</div>
-          '></iframe>
+          <h2><b>해외 주식 평단가 계산기</b></h2>
+          <p>기존 보유단가 <input id="stock_price" type="text"> (원/달러)</p>
+          <p>기존 보유수량 <input id="stocks" type="text"> 주</p>
+          <p>신규 매수단가 <input id="addprice" type="text"> (원/달러)</p>
+          <p>신규 매수수량 <input id="addstocks" type="text"> 주</p>
+          <button class="btn btn-dark" onclick="calstocks()">계산하기</button>
+          <p><b>총 보유수량: <span id="cal_stocks"></span> 주</b></p>
+          <p><b>평단가: <span id="cal_result"></span> 원</b></p>
         </td>
       </tr>
     </tbody>
   </table>
-  <script src="./main.js"></script>
+
+  <script>
+    function calstocks() {
+      const stock_price = parseFloat(document.getElementById('stock_price').value);
+      const stocks = parseInt(document.getElementById('stocks').value);
+      const addprice = parseFloat(document.getElementById('addprice').value);
+      const addstocks = parseInt(document.getElementById('addstocks').value);
+
+      if (isNaN(stock_price) || isNaN(stocks) || isNaN(addprice) || isNaN(addstocks)) {
+        alert("모든 입력란에 숫자를 정확히 입력해주세요.");
+        return;
+      }
+
+      const totalStocks = stocks + addstocks;
+      const avgPrice = ((stock_price * stocks) + (addprice * addstocks)) / totalStocks;
+
+      document.getElementById('cal_stocks').innerText = totalStocks;
+      document.getElementById('cal_result').innerText = avgPrice.toFixed(2);
+    }
+
+    function convert() {
+      // 추후 환율 계산기 기능 구현 가능
+    }
+
+    function reconvert() {
+      // 추후 역변환 기능 구현 가능
+    }
+  </script>
 </body>
 </html>
+-
