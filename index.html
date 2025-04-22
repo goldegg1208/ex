@@ -103,12 +103,7 @@
 
 <h2 class="wp-block-heading"><span id="i-3"><b>해외 주식 평단가 계산기</b></span></h2>
 
-
 <p>아래의 빈 항목을 채워놓은 후 “계산하기” 버튼을 누르세요.</p>
-<div class="code-block code-block-3" style="margin: 8px auto; text-align:left; display: block; clear: both; width: 880px; height: 350px;">
-
-
-
 
 <style> 
 input[type=text] {
@@ -124,7 +119,6 @@ input[type=text]:focus {
   background-color: lightblue;
 }
 </style>
-
 <p><b>기존 보유단가</b>
 <input id="stock_price" class="inputtext" style="width: 150px; vertical-align: middle; text-align: right;" type="text"> <b> (원/달러)</b></p>
 <p><b>기존 보유수량</b>
@@ -138,7 +132,6 @@ input[type=text]:focus {
 <p><button size="10px" style="color: #fff; background:black; font-size:1em; border-radius:0.5em; padding:5px 20px;" onclick="calstocks()">계산하기</button></p>
 <p>&nbsp;</p>
 <p><b> 총 보유수량 : <span id="cal_stocks"></span><span>주</span><br>평단가 : <span id="cal_result"></span><span>원</span></b></p>
-
 <script type="text/javascript">
   function calstocks() {
     var stock_price = document.getElementById('stock_price').value;
@@ -167,6 +160,9 @@ input[type=text]:focus {
     document.getElementById("cal_result").innerHTML = cal_result;
     //return stock_price;
   }
+</script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 
