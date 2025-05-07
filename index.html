@@ -98,7 +98,7 @@
               var cal_result;
               cal_result = parseFloat(cal_result);
               cal_result = eval(((stock_price * stocks) + (addprice * addstocks)) / cal_stocks);
-              cal_result = cal_result.toFixed(2);
+              cal_result = cal_result.toFixed(4);
 
               document.getElementById("cal_stocks").innerHTML = cal_stocks;
               document.getElementById("cal_result").innerHTML = cal_result;
